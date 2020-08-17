@@ -1,7 +1,9 @@
 /*-------------------------------------------
- * Countdown with SSD1306
+ * DHT-Sensor with Arduino Uno and SSD 1306 -> A way to measure temperature and huminity
  * Credits: Diogo Vilhena
  * https://github.com/VilhenaChen
+ * DISCLAIMER:
+ *   Free to use, but please leave a coment on your code to where you pick up the code thank you
  *-------------------------------------------
  */
  
@@ -36,17 +38,21 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  // temp = Temperature; hum = Humidity
   float temp = dht.readTemperature();
   float hum = dht.readHumidity();
   display.clearDisplay();
+  //Inicalizing text
   display.setTextSize(1);
   display.setTextColor(WHITE);
+  //Displaying the Temperature in Celsius
   display.setCursor(45,0);
   display.print("Temp");
   display.setTextSize(2);
   display.setCursor(32,10);
   display.print(temp,1);
   display.print("C");
+  //Displaying the Humidity
   display.setTextSize(1);
   display.setCursor(45,32);
   display.print("Hum");
